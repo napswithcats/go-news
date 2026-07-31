@@ -7,10 +7,10 @@ import (
 	"math"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/napswithcats/go-news/news"
 )
 
@@ -99,17 +99,19 @@ func searchHandler(newsapi *news.Client) http.HandlerFunc {
 }
 
 func main() {
-	env, err := godotenv.Read()
-	if err != nil {
-		log.Fatalf("Error loading env: %v\n", err)
-	}
+	// env, err := godotenv.Read()
+	// if err != nil {
+	// 	log.Fatalf("Error loading env: %v\n", err)
+	// }
 
-	port := env["PORT"]
-	if port == "" {
-		port = "3000"
-	}
+	// port := env["PORT"]
+	// if port == "" {
+	// 	port = "3000"
+	// }
 
-	apiKey := env["NEWS_API_KEY"]
+	port := "3000"
+	// apiKey := env["NEWS_API_KEY"]
+	apiKey := os.Getenv("NEWS_API_KEY")
 	if apiKey == "" {
 		log.Fatal("Env: apiKey must be set")
 	}
