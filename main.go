@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"gonews/news"
 	"html/template"
 	"log"
 	"math"
@@ -12,6 +11,7 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
+	"github.com/napswithcats/go-news/news"
 )
 
 var (
