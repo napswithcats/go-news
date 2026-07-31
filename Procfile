@@ -1,1 +1,1 @@
-web: bin/gonews
+web: bin/go-news
