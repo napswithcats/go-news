@@ -99,9 +99,9 @@ func searchHandler(newsapi *news.Client) http.HandlerFunc {
 }
 
 func main() {
-	env, _ := godotenv.Read(".env", "process.env")
-	if len(env) == 0 {
-		log.Fatal("Error loading env")
+	env, err := godotenv.Read()
+	if err != nil {
+		log.Fatalf("Error loading env: %v\n", err)
 	}
 
 	port := env["PORT"]
